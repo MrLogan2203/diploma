@@ -6,6 +6,8 @@ Diploma project for cybersecurity
 
 ``` bash 
 python3 diploma.py -t target host
-
-python3 diploma.py -h or --help to see help 
+'''
+-h to see help 
+''' bash
+python3 diploma.py -h 
 ```
