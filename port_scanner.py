@@ -1,19 +1,19 @@
 import threading
+import colorama
+from colorama import Fore
 from queue import Queue
 import time
 import socket
 
-def Scan_Port():
+def Scan_Port(target):
         # a print_lock is what is used to prevent "double" modification of shared variables.
         # this is used so while one thread is using a variable, others cannot access
         # it. Once done, the thread releases the print_lock.
         # to use it, you want to specify a print_lock per thing you wish to print_lock.
         print_lock = threading.Lock()
 
-        target = 'hackthissite.org'
+        #target = 'github.com'
 
-
-        # ip = socket.gethostbyname(target)
 
 
         def portscan(port):
@@ -21,7 +21,8 @@ def Scan_Port():
             try:
                 con = s.connect((target, port))
                 with print_lock:
-                    print('port', port)
+                    print(Fore.GREEN)
+                    print(f'Port {port} is open' + Fore.WHITE)
                 con.close()
             except:
                 pass
