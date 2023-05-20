@@ -12,10 +12,6 @@ def Scan_Port(target):
         # to use it, you want to specify a print_lock per thing you wish to print_lock.
         print_lock = threading.Lock()
 
-        #target = 'github.com'
-
-
-
         def portscan(port):
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             try:

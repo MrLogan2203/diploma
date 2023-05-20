@@ -3,6 +3,8 @@ from urllib.parse import urlparse
 import re
 import requests
 from bs4 import BeautifulSoup
+import colorama
+from colorama import Fore
 
 def Get_full_URL(url, link):
        if link.startswith('http://') or link.startswith('https://'):
@@ -19,7 +21,6 @@ def Scan_CGI(url):
                 response = requests.get(url)
                 html_content = response.text
                 
-                cgi_urls = re.findall(r'href=["\'](.*?)\.cgi["\']', html_content)
                 
                 soup = BeautifulSoup(html_content, "html.parser")
                 cgi_urls = [link.get("href") for link in soup.find_all(href=re.compile(r"\.cgi$"))]
@@ -30,10 +31,6 @@ def Scan_CGI(url):
                         print(f"CGI scripts found on {url}: ")
                         for link in cgi_urls:
                                 Get_full_URL(url, link)
-                #if 'Server' in response.headers and 'CGI' in response.headers['Server']:
-                 #       print(f"CGI scripts found on {url}")
-                #else:
-                 #       print(f"No CGI scripts found on {url}")
                 
         except requests.exceptions.RequestException as e:
                 print(f"Error occured: {str(e)}")
@@ -47,16 +44,15 @@ def Scan_JS(url):
                 response = requests.get(url)
                 html_content = response.text
                 
-                js_urls = re.findall(r'src=["\'](.*?)\.js["\']',html_content)
                 
                 soup = BeautifulSoup(html_content, "html.parser")
                 
                 js_urls = [link.get("src") for link in soup.find_all(src=re.compile(r"\.js$"))]
                 
                 if len(js_urls) == 0:
-                        print(f"No JS scripts found on {url}")
+                        print(Fore.GREEN+f"No JS scripts found on {url}"+Fore.WHITE)
                 else:
-                        print(f"JS scripts found on {url}: ")
+                        print(Fore.GREEN+ f"JS scripts found on {url}: "+Fore.WHITE)
                         for link in js_urls:
                                 Get_full_URL(url, link)
                                 
