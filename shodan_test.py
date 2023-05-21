@@ -17,15 +17,13 @@ def Scan_Inf(host_name):
                         IP: {}
                         Organization: {}
                         Operating System: {}
-                """.format(host['ip_str'], host.get('org', 'n/a'), host.get('os', 'n/a')))
+                        Country: {}
+                        City: {}
+                        Latitude: {}
+                        Longitude: {}
+                        Hostnames: {}
+                """.format(host['ip_str'], host.get('org', 'n/a'), host.get('os', 'n/a'), host.get('country_name','n/a'), host.get('city','n/a'), host.get('latitude','n/a'), host.get('longitude','n/a'), host.get('hostnames','n/a')))
         
-                # Print all banners
-                for item in host['data']:
-                        print("""
-                                Port: {}
-                                Banner: {}
-        
-                        """.format(item['port'], item['data']))
         except socket.gaierror:
                 print("Host not found")
                 
