@@ -29,13 +29,3 @@ def run(ip_num: str, scan, start: int, end: int):
                 executor.submit(scan, ip_num, port + 1)
         except KeyboardInterrupt:
             sys.exit()
-
-
-def main():
-    t = time.time()
-    run("google.com", scan, 1,5000)
-    print("Total execution time", time.time() - t)
-
-
-if __name__ == "__main__":
-    main()
