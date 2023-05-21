@@ -28,7 +28,7 @@ def Scan_CGI(url):
                 if len(cgi_urls) == 0:
                         print(f"No CGI scripts found on {url}")
                 else:
-                        print(f"CGI scripts found on {url}: ")
+                        print(Fore.GREEN + f"CGI scripts found on {url}: "+Fore.WHITE)
                         for link in cgi_urls:
                                 Get_full_URL(url, link)
                 
@@ -50,7 +50,7 @@ def Scan_JS(url):
                 js_urls = [link.get("src") for link in soup.find_all(src=re.compile(r"\.js$"))]
                 
                 if len(js_urls) == 0:
-                        print(Fore.GREEN+f"No JS scripts found on {url}"+Fore.WHITE)
+                        print(f"No JS scripts found on {url}")
                 else:
                         print(Fore.GREEN+ f"JS scripts found on {url}: "+Fore.WHITE)
                         for link in js_urls:
