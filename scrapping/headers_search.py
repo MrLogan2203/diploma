@@ -13,6 +13,8 @@ def Headers_Search(url):
         desired_headers = ["Content-Type", "Server", "Strict-Transport-Security", "X-Frame-Options", "X-XSS-Protection", "X-Content-Type-Options", "Referrer-Policy"]
 
         for header in desired_headers:
+                if header == "X-XSS-Protection" and headers.get(header) == str(0):
+                       headers.pop(header)
                 if header not in headers:
                         if header == "Strict-Transport-Security":
                                 print(f"{header}: header not found. The lack of this header may cause the vulnerability for the MITM (man-in-the-middle) attack, which downgrades connection to HTTP")
@@ -20,6 +22,8 @@ def Headers_Search(url):
                                 print(f"{header}: header not found. The lack of this header may cause the vulnerability for the clickjacking attack")
                         elif header == "X-XSS-Protection":
                                 print(f"{header}: header not found. The lack of this header may cause the vulnerablity for XSS attack.")
+                        elif header == "X-Content-Type-Options":
+                                print(f"{header}: header not found. The lack of this header may cause the vulnerablity for MIME attack.")
                         elif header == "Referrer-Policy":
                                 print(f"{header}: header not found. The lack of this header may cause the sensitive information leakage.")
                 else:
