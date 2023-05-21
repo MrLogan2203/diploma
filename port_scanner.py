@@ -1,60 +1,41 @@
-import threading
-import colorama
-from colorama import Fore
-from queue import Queue
-import time
 import socket
-
-def Scan_Port(target):
-        # a print_lock is what is used to prevent "double" modification of shared variables.
-        # this is used so while one thread is using a variable, others cannot access
-        # it. Once done, the thread releases the print_lock.
-        # to use it, you want to specify a print_lock per thing you wish to print_lock.
-        print_lock = threading.Lock()
-
-        def portscan(port):
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            try:
-                con = s.connect((target, port))
-                with print_lock:
-                    print(Fore.GREEN)
-                    print(f'Port {port} is open' + Fore.WHITE)
-                con.close()
-            except:
-                pass
+import threading
+import concurrent.futures
+import re
+import time
+import sys
 
 
-        # The threader thread pulls an worker from the queue and processes it
-        def threader():
-            while True:
-                # gets an worker from the queue
-                worker = q.get()
+def scan(ip, port):
+    lock = threading.Lock()
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(.1)
 
-                # Run the example job with the avail worker in queue (thread)
-                portscan(worker)
+    try:
+        con = s.connect((ip, port))
+        with lock:
+            result = f"Port {port} is OPEN Running {socket.getservbyport(port)}"
+            print(result)
+        con.close()
+    except:
+        pass
 
-                # completed with the job
-                q.task_done()
+
+def run(ip_num: str, scan, start: int, end: int):
+    with concurrent.futures.ThreadPoolExecutor(max_workers=200) as executor:
+        try:
+            for port in range(start,end+1):
+                #print(port)
+                executor.submit(scan, ip_num, port + 1)
+        except KeyboardInterrupt:
+            sys.exit()
 
 
-        # Create the queue and threader
-        q = Queue()
+def main():
+    t = time.time()
+    run("google.com", scan, 1,5000)
+    print("Total execution time", time.time() - t)
 
-        # how many threads are we going to allow for
-        for x in range(500):
-            t = threading.Thread(target=threader)
 
-            # classifying as a daemon, so they will die when the main dies
-            t.daemon = True
-
-            # begins, must come after daemon definition
-            t.start()
-
-        start = time.time()
-
-        # 100 jobs assigned.
-        for worker in range(1, 500):
-            q.put(worker)
-
-        # wait until the thread terminates.
-        q.join()
+if __name__ == "__main__":
+    main()
