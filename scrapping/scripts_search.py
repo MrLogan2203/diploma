@@ -1,7 +1,6 @@
 import requests
 from urllib.parse import urlparse 
 import re
-import requests
 from bs4 import BeautifulSoup
 import colorama
 from colorama import Fore
