@@ -17,6 +17,8 @@ def scrap(url, depth = 1):
     for bs_link in soup.find_all('a'):
         try:
             new_link = bs_link.get("href")
+            if new_link.contains('cgi-bin'):
+                print(f'cgi-bin folder has been found at {new_link}')
             if new_link.startswith("http"):
                 extlinks.append(urljoin(url,new_link))
             else:
@@ -32,9 +34,9 @@ def scrap(url, depth = 1):
             continue
 
 def save(url):
-	with open("./scrapping results/internal_"+url.replace(".","_")+".txt","a") as f:
-		for link in intlinks:
-			f.write(link+"\n")
-	with open("./scrapping results/external_"+url.replace(".","_")+".txt","a") as f:
-			for link in extlinks:
-				f.write(link+"\n")
+        with open("./scrapping results/internal_"+url.replace(".","_")+".txt","a") as f:
+                for link in intlinks:
+                        f.write(link+"\n")
+        with open("./scrapping results/external_"+url.replace(".","_")+".txt","a") as f:
+                        for link in extlinks:
+                                f.write(link+"\n")

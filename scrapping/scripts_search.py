@@ -1,6 +1,7 @@
 import requests
 from urllib.parse import urlparse 
 import re
+import requests
 from bs4 import BeautifulSoup
 import colorama
 from colorama import Fore
@@ -23,6 +24,7 @@ def Scan_CGI(url):
                 
                 soup = BeautifulSoup(html_content, "html.parser")
                 cgi_urls = [link.get("href") for link in soup.find_all(href=re.compile(r"\.cgi$"))]
+                
                 
                 if len(cgi_urls) == 0:
                         print(f"No CGI scripts found on {url}")

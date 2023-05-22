@@ -15,7 +15,7 @@ def main():
         parser.add_argument('-t', metavar='<string>', help='provide a target host')
 
         # Add the '-s' argument for handling scrap function
-        parser.add_argument('-s', metavar='<int>', type=int, nargs='?',const=1, help='provide an integer value for scrapping depth. default = 1, only provided host is scanning')
+        parser.add_argument('-s', metavar='<int>', type=int, nargs='?',default=1, help='provide an integer value for scrapping depth. default = 1, only provided host is scanning')
         
         parser.add_argument('-p', metavar='<str>', type=str, nargs='?',const='1-65535', help ='provide the str range of ports to scan e.g. 1-500. Default is 1-65535, mention that it might be time consuming') 
         
