@@ -17,20 +17,20 @@ def scrap(url, depth = 1):
     for bs_link in soup.find_all('a'):
         try:
             new_link = bs_link.get("href")
-            if new_link.contains('cgi-bin'):
-                print(f'cgi-bin folder has been found at {new_link}')
             if new_link.startswith("http"):
                 extlinks.append(urljoin(url,new_link))
             else:
                 if depth >=1:
                     new_url = urljoin(url, new_link)
+                    if new_url is not None and 'cgi-bin' in new_link:
+                        print(f'cgi-bin folder has been found at {new_link}')
+                    #print(new_url)
                     if new_link.startswith('/') and new_url not in intlinks:
-                        #print(new_url)
                         intlinks.append(new_url)
                         scrap(new_url,depth-1)
                     else:
                         continue
-        except AttributeError:
+        except AttributeError or TypeError:
             continue
 
 def save(url):
