@@ -3,6 +3,16 @@ https://google.com/advanced_search?hl=uk&authuser=0
 https://google.com/intl/uk/ads/
 https://google.com/intl/uk/about.html
 https://google.com/preferences?hl=uk
+https://google.com/webhp?tab=ww
+https://google.com/support/websearch?p=ws_cookies_notif&hl=uk
+https://google.com/url?q=/safesearch%3Fhl%3Duk%26prev%3Dhttps://www.google.com/preferences%3Fhl%253Duk&sa=U&ved=0ahUKEwj17aLw5Zf_AhW7gP0HHR70CLEQ1fMKCAc&usg=AOvVaw0qYrBOVs8OvOeftqSl3Agm
+https://google.com/url?q=/history/optout%3Fhl%3Duk&sa=U&ved=0ahUKEwj17aLw5Zf_AhW7gP0HHR70CLEQpdoJCAo&usg=AOvVaw05qCl43Aj8PmF1K4RK7H5B
+https://google.com/url?q=https://support.google.com/websearch/%3Fp%3Dws_results_help%26hl%3Duk%26fg%3D1&sa=U&ved=0ahUKEwj17aLw5Zf_AhW7gP0HHR70CLEQ8KwCCA8&usg=AOvVaw2fzUZ2ul2VZNVwze4kYmLv
+https://google.com/url?q=https://policies.google.com/privacy%3Fhl%3Duk%26fg%3D1&sa=U&ved=0ahUKEwj17aLw5Zf_AhW7gP0HHR70CLEQ8awCCBA&usg=AOvVaw0A2RzSn4HacsvR3fD8U4eF
+https://google.com/url?q=https://policies.google.com/terms%3Fhl%3Duk%26fg%3D1&sa=U&ved=0ahUKEwj17aLw5Zf_AhW7gP0HHR70CLEQ8qwCCBE&usg=AOvVaw3N3ebA4DAnl5REGkggQMo8
 https://google.com/advanced_search?hl=uk&authuser=0
+https://google.com/url?q=https://support.google.com/websearch/%3Fp%3Dws_results_help%26hl%3Duk%26fg%3D1&sa=U&ved=0ahUKEwi9r4n05Zf_AhUIjIkEHYjfBTgQ8KwCCAI&usg=AOvVaw39Ax23wXWMakoQgibc0egE
+https://google.com/url?q=https://policies.google.com/privacy%3Fhl%3Duk%26fg%3D1&sa=U&ved=0ahUKEwi9r4n05Zf_AhUIjIkEHYjfBTgQ8awCCAM&usg=AOvVaw3zTcd6QMNVTtQpyNHI9Dvd
+https://google.com/url?q=https://policies.google.com/terms%3Fhl%3Duk%26fg%3D1&sa=U&ved=0ahUKEwi9r4n05Zf_AhUIjIkEHYjfBTgQ8qwCCAQ&usg=AOvVaw0p-gfNBTipw1Lt_RUsPmo2
 https://google.com/intl/uk/ads/
 https://google.com/intl/uk/about.html
