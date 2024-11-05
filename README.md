@@ -19,4 +19,4 @@ options:
 
 ## what it can do
 With specifying the target host you can scan it for the open source information, scan for important HTTP headers, scan for open ports, scrape the host with provided depth and search for CGI and JS scripts.
-Please mention that a program is still under development and new featurs and bug fixes will be implemented.
+Please mention that a program is still under development and new features and bug fixes will be implemented.
