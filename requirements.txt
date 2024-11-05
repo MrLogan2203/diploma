@@ -1,4 +1,4 @@
 beautifulsoup4==4.11.2
 colorama==0.4.6
-Requests==2.30.0
+Requests==2.32.2
 shodan==1.28.0
